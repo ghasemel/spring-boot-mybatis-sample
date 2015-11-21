@@ -14,6 +14,33 @@ import javax.persistence.Id;
 public class User {
 	@Id
 	private String username;
+	private String userpwd;
+	private int uid;
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"username='" + username + '\'' +
+				", userpwd='" + userpwd + '\'' +
+				", uid=" + uid +
+				'}';
+	}
+
+	public String getUserpwd() {
+		return userpwd;
+	}
+
+	public void setUserpwd(String userpwd) {
+		this.userpwd = userpwd;
+	}
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
 
 	/**
 	 * @return the username
@@ -28,4 +55,5 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 }

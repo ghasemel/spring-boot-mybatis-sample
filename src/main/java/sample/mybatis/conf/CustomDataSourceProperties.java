@@ -14,8 +14,12 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = CustomDataSourceProperties.PREFIX)
 public class CustomDataSourceProperties implements BeanClassLoaderAware{
+	public CustomDataSourceProperties()
+	{
+		System.out.println("CustomDataSourceProperties被创建");
+	}
 	
-	public static final String PREFIX = "lxy.datasource";
+	public static final String PREFIX = "spring.datasource";
 	private String url;
 	private String username;
 	private String password;

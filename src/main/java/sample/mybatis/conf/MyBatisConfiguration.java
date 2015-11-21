@@ -20,17 +20,27 @@ import org.springframework.core.io.Resource;
 @Configuration
 public class MyBatisConfiguration {
 
+	public MyBatisConfiguration()
+	{
+		System.out.println("MyBatisConfiguration被创建");
+		System.out.println(properties);
+		System.out.println(sqlSessionFactory);
+		System.out.println(sessionTemplate);
+		System.out.println("-------------------------------------");
+	}
+
 	@Autowired
 	CustomDataSourceProperties properties;
 	@Autowired
 	SqlSessionFactory sqlSessionFactory;
 	@Autowired
 	SqlSessionTemplate sessionTemplate;
-    @Autowired
-    private UserMapper userMapper;
+  //  @Autowired
+    //private UserMapper userMapper;
     
 	@Bean
 	public SqlSessionTemplate sqlSessionTemplate(){
+		System.out.println("创建了SqlSessionTemplate");
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 	    
@@ -41,6 +51,7 @@ public class MyBatisConfiguration {
     
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(){
+		System.out.println("创建了sqlSessionFactory");
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		DataSourceBuilder factory = DataSourceBuilder
 				.create(this.properties.getClassLoader())

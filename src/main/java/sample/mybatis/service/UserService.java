@@ -6,18 +6,27 @@ import sample.mybatis.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
- * User��Service
+ * User��Service
  *
- * @author С��
+ * @author С��
  * @version 1.0.0
  */
 @Service
 public class UserService {
 
 	
-	@Autowired
+	@Resource
 	private UserMapper userMapper;
+
+	public UserService()
+	{
+		System.out.println("业务逻辑对象创建");
+		System.out.println("\t"+userMapper);
+
+	}
 	
 	
 	
